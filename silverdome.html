@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Gurgaon Micro-Market Report — Silverdome Realtors</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --silver: #B8C8D8;
+  --silver-light: #D8E8F4;
+  --silver-dark: #8099AA;
+  --gold: #C9A96E;
+  --gold-light: #E2C98A;
+  --dark: #07090F;
+  --dark-2: #0D1119;
+  --dark-3: #131825;
+  --dark-4: #1A2133;
+  --text: #E6ECF4;
+  --text-dim: #8899AA;
+  --green: #4CA87A;
+  --border: rgba(184,200,216,0.13);
+  --border-gold: rgba(201,169,110,0.22);
+}
+ 
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+ 
+body{
+  background:var(--dark);
+  color:var(--text);
+  font-family:'Outfit',sans-serif;
+  font-weight:300;
+  line-height:1.75;
+  overflow-x:hidden;
+}
+ 
+/* grain */
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:999;opacity:0.5;
+}
+ 
+/* ──── PAGE SYSTEM ──── */
+.page{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  overflow:hidden;
+}
+ 
+/* page nav dots */
+.page-nav{
+  position:fixed;
+  right:24px;top:50%;
+  transform:translateY(-50%);
+  display:flex;flex-direction:column;
+  gap:10px;z-index:50;
+}
+.page-nav a{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:rgba(184,200,216,0.25);
+  display:block;
+  transition:all 0.3s;
+  text-decoration:none;
+}
+.page-nav a:hover,.page-nav a.active{
+  background:var(--silver);
+  transform:scale(1.4);
+}
+ 
+/* ──── SHARED COMPONENTS ──── */
+.container{max-width:900px;margin:0 auto;padding:0 28px;}
+.container-wide{max-width:1140px;margin:0 auto;padding:0 28px;}
+ 
+/* Logo strip */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 40px;
+  border-bottom:1px solid var(--border);
+  background:rgba(7,9,15,0.96);
+  position:sticky;top:0;z-index:40;
+  backdrop-filter:blur(12px);
+}
+.logo-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:600;
+  letter-spacing:3px;
+  color:var(--silver-light);
+}
+.logo-text span{color:var(--silver-dark);}
+.topbar-tag{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--silver-dark);font-weight:500;
+}
+.topbar-phone{
+  font-size:13px;color:var(--silver);font-weight:500;
+  text-decoration:none;
+}
+.topbar-phone:hover{color:var(--gold);}
+ 
+/* Section label */
+.sec-label{
+  display:flex;align-items:center;gap:16px;margin-bottom:36px;
+}
+.sec-label span{
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--silver);font-weight:500;
+}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border);}
+ 
+/* Headings */
+h2.rh{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(30px,5vw,52px);
+  font-weight:700;line-height:1.1;
+  color:var(--text);margin-bottom:24px;
+}
+h2.rh em{color:var(--silver-light);font-style:italic;}
+ 
+/* Body text */
+.body-p{font-size:15px;color:var(--text);line-height:1.85;margin-bottom:16px;max-width:760px;}
+.body-p strong{color:var(--silver-light);font-weight:500;}
+.body-p b{color:var(--gold-light);font-weight:600;}
+ 
+/* Pull quote */
+.pq{
+  border-left:3px solid var(--silver);
+  padding:18px 28px;margin:28px 0;
+  background:rgba(184,200,216,0.04);
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;font-style:italic;
+  color:var(--text-dim);line-height:1.6;
+}
+.pq strong{color:var(--silver-light);font-style:normal;}
+ 
+/* ──── PAGE 1 — COVER ──── */
+#page1{background:var(--dark);}
+ 
+.cover-hero{
+  position:relative;
+  min-height:calc(100vh - 60px);
+  display:flex;flex-direction:column;
+  justify-content:center;
+  overflow:hidden;
+}
+.cover-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%,rgba(100,140,180,0.09) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 40% at 20% 80%,rgba(201,169,110,0.07) 0%,transparent 60%),
+    var(--dark);
+}
+.cover-img{
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600&q=80');
+  background-size:cover;background-position:center;
+  opacity:0.12;
+  mix-blend-mode:luminosity;
+}
+.cover-content{
+  position:relative;z-index:2;
+  padding:80px 40px 60px;
+  max-width:1000px;margin:0 auto;width:100%;
+}
+.confidential-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--border-gold);
+  background:rgba(201,169,110,0.06);
+  padding:7px 18px;border-radius:2px;
+  margin-bottom:36px;
+}
+.confidential-pill span{
+  font-size:9px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);font-weight:600;
+}
+.confidential-pill::before{
+  content:'●';color:var(--gold);font-size:6px;animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+ 
+.cover-eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--silver-dark);font-weight:500;margin-bottom:16px;display:block;
+}
+.cover-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,8vw,96px);
+  font-weight:700;line-height:1.0;
+  color:var(--text);
+  margin-bottom:8px;
+}
+.cover-title .accent{
+  color:var(--silver-light);
+  display:block;font-style:italic;
+  font-size:clamp(36px,6vw,76px);
+}
+.cover-title .co{
+  font-size:clamp(16px,2.5vw,24px);
+  color:var(--silver-dark);
+  font-family:'Outfit',sans-serif;
+  font-weight:300;font-style:normal;
+  letter-spacing:3px;display:block;
+  margin-top:12px;text-transform:uppercase;
+}
+.cover-hook{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(17px,2.5vw,24px);
+  font-weight:400;line-height:1.5;
+  color:var(--text-dim);
+  max-width:700px;margin:36px 0 0;
+  border-top:1px solid var(--border);
+  padding-top:28px;
+}
+.cover-hook strong{color:var(--silver-light);}
+ 
+/* stats strip */
+.stat-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  margin-top:56px;
+  border:1px solid var(--border);
+  background:var(--border);
+}
+.sstat{
+  background:var(--dark-2);
+  padding:28px 24px;
+  transition:background 0.3s;
+}
+.sstat:hover{background:var(--dark-3);}
+.sstat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,4.5vw,56px);
+  font-weight:700;color:var(--silver-light);
+  line-height:1;display:block;margin-bottom:6px;
+}
+.sstat-label{font-size:12px;color:var(--text-dim);line-height:1.5;}
+ 
+/* page bottom bar */
+.page-bar{
+  border-top:1px solid var(--border);
+  padding:16px 40px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(7,9,15,0.9);
+}
+.page-bar span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);}
+ 
+/* ──── PAGE 2 — MARKET + MICRO-MARKETS ──── */
+#page2{background:var(--dark-2);}
+.p2-inner{padding:72px 0;}
+ 
+/* insight list */
+.ilist{list-style:none;margin:20px 0 28px;display:flex;flex-direction:column;gap:14px;}
+.ilist li{
+  font-size:14px;color:var(--text);
+  padding-left:22px;position:relative;line-height:1.7;
+}
+.ilist li::before{content:'→';position:absolute;left:0;color:var(--silver);font-weight:600;}
+ 
+/* micro-market grid */
+.mm-grid{display:flex;flex-direction:column;gap:2px;margin:32px 0;}
+.mmc{
+  display:grid;grid-template-columns:56px 1fr;
+  background:var(--dark-3);border:1px solid var(--border);
+  overflow:hidden;transition:border-color 0.3s;
+}
+.mmc:hover{border-color:var(--silver-dark);}
+.mmc.hot{border-color:rgba(184,200,216,0.3);}
+.mmc-n{
+  background:var(--dark-4);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:700;
+  color:var(--silver-dark);
+  writing-mode:vertical-rl;letter-spacing:2px;padding:18px 0;
+}
+.mmc.hot .mmc-n{color:var(--silver-light);}
+.mmc-c{padding:24px 28px;}
+.mmc-tag{
+  display:inline-block;font-size:9px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--silver-dark);
+  border:1px solid var(--border);padding:3px 10px;
+  margin-bottom:8px;font-weight:500;
+}
+.mmc.hot .mmc-tag{color:var(--silver-light);border-color:rgba(184,200,216,0.3);}
+.mmc-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:600;
+  color:var(--text);margin-bottom:6px;
+}
+.mmc-desc{font-size:13px;color:var(--text-dim);line-height:1.7;}
+ 
+/* playbook steps */
+.steps{display:flex;flex-direction:column;gap:2px;margin:32px 0;}
+.step{display:grid;grid-template-columns:52px 1fr;background:var(--dark-3);border:1px solid var(--border);overflow:hidden;}
+.step-n{
+  background:linear-gradient(135deg,var(--silver-dark),var(--silver));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;font-weight:700;color:var(--dark);
+}
+.step-b{padding:24px 28px;}
+.step-b h4{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.step-b p{font-size:13px;color:var(--text-dim);line-height:1.7;}
+ 
+/* ──── PAGE 3 — DEAL 1 ──── */
+#page3{background:var(--dark);}
+.deal-pg{padding:64px 0;}
+ 
+.deal-hdr{
+  background:var(--dark-3);
+  border:1px solid var(--border);
+  padding:36px 40px;
+  margin-bottom:2px;
+  position:relative;overflow:hidden;
+}
+.deal-hdr::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--silver),transparent);
+}
+.deal-ey{
+  font-size:9px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--silver);font-weight:600;margin-bottom:10px;display:block;
+}
+.deal-nm{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(30px,5vw,58px);font-weight:700;
+  color:var(--text);line-height:1.05;margin-bottom:10px;
+}
+.deal-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;font-style:italic;
+  color:var(--text-dim);max-width:680px;line-height:1.55;
+}
+ 
+.deal-img{
+  width:100%;height:340px;object-fit:cover;display:block;
+  filter:brightness(0.82) saturate(0.9);
+  transition:filter 0.5s;
+}
+.deal-img:hover{filter:brightness(0.95) saturate(1);}
+ 
+/* specs */
+.specs{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);margin:28px 0;
+}
+.spec{
+  background:var(--dark-3);padding:18px 16px;text-align:center;
+  transition:background 0.3s;
+}
+.spec:hover{background:var(--dark-4);}
+.sv{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:700;color:var(--silver-light);
+  display:block;margin-bottom:4px;
+}
+.sk{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);}
+ 
+.deal-body{
+  background:var(--dark-2);border:1px solid var(--border);border-top:none;
+  padding:40px;
+}
+.deal-body p{font-size:14.5px;color:var(--text);margin-bottom:16px;line-height:1.85;}
+.deal-body p strong{color:var(--silver-light);font-weight:500;}
+.deal-body p b{color:var(--gold-light);font-weight:600;}
+.deal-body h4{
+  font-family:'Cormorant Garamond',serif;
+  font-size:21px;font-weight:600;color:var(--text);margin:28px 0 14px;
+}
+ 
+/* math table */
+.mtbl{width:100%;border-collapse:collapse;margin:20px 0;font-size:13.5px;}
+.mtbl tr{border-bottom:1px solid var(--border);}
+.mtbl tr:last-child{border-bottom:2px solid var(--silver-dark);}
+.mtbl td{padding:12px 16px;}
+.mtbl td:first-child{color:var(--text-dim);}
+.mtbl td:last-child{
+  text-align:right;font-weight:500;color:var(--text);
+  font-family:'Cormorant Garamond',serif;font-size:17px;
+}
+.mtbl tr.hl td{background:rgba(184,200,216,0.06);color:var(--silver-light);}
+.mtbl tr.hl td:last-child{color:var(--silver-light);font-size:20px;}
+ 
+/* ──── PAGE 4 — DEAL 2 + DEAL 3 ──── */
+#page4{background:var(--dark-2);}
+ 
+/* phase rows */
+.phase-wrap{margin:20px 0;}
+.ph-row{
+  display:grid;grid-template-columns:12px 1fr auto;
+  align-items:center;gap:14px;
+  padding:16px 22px;
+  background:var(--dark-3);border:1px solid var(--border);
+  margin-bottom:2px;position:relative;
+}
+.ph-row.live{background:rgba(184,200,216,0.05);border-color:rgba(184,200,216,0.28);}
+.ph-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--border);border:2px solid var(--text-dim);
+}
+.ph-row.live .ph-dot{background:var(--silver);border-color:var(--silver);}
+.ph-lbl{font-size:13px;color:var(--text-dim);}
+.ph-row.live .ph-lbl{color:var(--text);}
+.ph-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:700;color:var(--silver-light);
+  white-space:nowrap;
+}
+.ph-badge{
+  position:absolute;right:20px;top:50%;transform:translateY(-50%);
+  font-size:8px;letter-spacing:2px;text-transform:uppercase;
+  background:var(--silver);color:var(--dark);
+  padding:3px 8px;font-weight:700;
+}
+.ph-badge.sold{background:var(--text-dim);}
+ 
+/* commercial timeline */
+.tl-wrap{display:flex;flex-direction:column;gap:2px;margin:24px 0;}
+.tl-blk{
+  background:var(--dark-3);border:1px solid var(--border);
+  padding:24px 28px;position:relative;
+}
+.tl-blk::before{
+  content:attr(data-ph);
+  position:absolute;top:14px;right:18px;
+  font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--silver-dark);font-weight:500;
+}
+.tl-blk h5{
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-weight:600;color:var(--silver);margin-bottom:10px;
+}
+.tl-row{
+  display:flex;justify-content:space-between;
+  font-size:13px;color:var(--text-dim);
+  padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.tl-row:last-child{border:none;}
+.tl-v{color:var(--text);font-weight:500;}
+.tl-blk.result{border-color:rgba(184,200,216,0.3);background:rgba(184,200,216,0.04);}
+.tl-blk.result .tl-v{color:var(--silver-light);}
+ 
+/* ──── PAGE 5 — ABOUT + CTA ──── */
+#page5{background:var(--dark);}
+ 
+.about-grid{
+  display:grid;grid-template-columns:280px 1fr;
+  gap:52px;align-items:start;padding:64px 0;
+}
+@media(max-width:720px){
+  .about-grid{grid-template-columns:1fr;}
+  .about-left{display:flex;flex-direction:column;align-items:center;text-align:center;}
+}
+ 
+.founder-img{
+  width:100%;max-width:240px;
+  border:1px solid var(--border);
+  filter:sepia(0.1) brightness(0.9);
+}
+.founder-badge{
+  display:inline-block;
+  background:rgba(184,200,216,0.07);
+  border:1px solid var(--border);
+  padding:6px 14px;margin-top:14px;
+}
+.founder-badge span{
+  font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--silver);font-weight:500;
+}
+.founder-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px;font-weight:700;color:var(--text);
+  margin:16px 0 4px;line-height:1.1;
+}
+.founder-role{
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--silver-dark);font-weight:500;margin-bottom:20px;
+}
+.founder-quote{
+  background:rgba(184,200,216,0.05);
+  border-left:2px solid var(--silver-dark);
+  padding:16px 20px;margin:20px 0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-style:italic;color:var(--text-dim);
+  line-height:1.7;
+}
+ 
+/* company facts */
+.facts-row{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;margin:28px 0;
+}
+@media(max-width:680px){.facts-row{grid-template-columns:repeat(2,1fr);}}
+.fact{
+  background:var(--dark-3);border:1px solid var(--border);
+  padding:18px 16px;text-align:center;
+}
+.fact-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;font-weight:700;color:var(--silver-light);
+  display:block;margin-bottom:4px;
+}
+.fact-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);}
+ 
+/* award row */
+.awards-row{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:2px;margin:20px 0;
+}
+.award-card{
+  background:var(--dark-3);border:1px solid var(--border);
+  padding:20px;display:flex;align-items:flex-start;gap:12px;
+}
+.award-icon{
+  font-size:22px;flex-shrink:0;
+  margin-top:2px;
+}
+.award-name{font-size:13px;color:var(--text);font-weight:500;margin-bottom:3px;}
+.award-from{font-size:11px;color:var(--text-dim);}
+ 
+/* partners */
+.partners-strip{
+  display:flex;flex-wrap:wrap;gap:8px;margin:20px 0;
+}
+.partner-pill{
+  background:var(--dark-3);border:1px solid var(--border);
+  padding:7px 16px;
+  font-size:11px;letter-spacing:1px;text-transform:uppercase;
+  color:var(--text-dim);font-weight:500;
+}
+ 
+/* Why 3 deals */
+.why-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2px;margin:32px 0;
+}
+.why-card{
+  background:var(--dark-3);border:1px solid var(--border);
+  padding:28px;transition:border-color 0.3s;
+}
+.why-card:hover{border-color:var(--silver-dark);}
+.why-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:52px;font-weight:700;
+  color:rgba(184,200,216,0.1);line-height:1;margin-bottom:12px;
+}
+.why-t{
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;font-weight:600;color:var(--silver-light);margin-bottom:8px;
+}
+.why-d{font-size:12px;color:var(--text-dim);line-height:1.7;}
+ 
+/* CTA */
+.cta-block{
+  background:var(--dark-3);
+  border:1px solid var(--silver-dark);
+  padding:56px 48px;text-align:center;
+  position:relative;overflow:hidden;
+  margin:48px 0;
+}
+.cta-block::before,.cta-block::after{
+  content:'';position:absolute;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--silver),transparent);
+}
+.cta-block::before{top:0;}
+.cta-block::after{bottom:0;}
+.cta-lb{
+  font-size:9px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--silver-dark);margin-bottom:18px;display:block;
+}
+.cta-h{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(24px,4vw,44px);font-weight:700;
+  color:var(--text);margin-bottom:10px;line-height:1.2;
+}
+.cta-s{font-size:14px;color:var(--text-dim);margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;}
+.cta-btn{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--silver-dark),var(--silver));
+  color:var(--dark);
+  font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:18px 52px;text-decoration:none;cursor:pointer;border:none;
+  transition:opacity 0.3s,transform 0.2s;
+}
+.cta-btn:hover{opacity:0.9;transform:translateY(-2px);}
+.cta-contact{
+  display:flex;align-items:center;justify-content:center;gap:32px;
+  margin-top:28px;flex-wrap:wrap;
+}
+.cta-contact a{
+  font-size:13px;color:var(--silver);text-decoration:none;
+  font-weight:500;transition:color 0.3s;
+}
+.cta-contact a:hover{color:var(--silver-light);}
+ 
+/* disclaimer */
+.disc{
+  padding:36px 0;border-top:1px solid var(--border);
+}
+.disc p{
+  font-size:11px;color:var(--text-dim);line-height:1.8;opacity:0.65;
+}
+ 
+/* footer */
+footer{
+  background:var(--dark-2);border-top:1px solid var(--border);
+  padding:28px 40px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+}
+.footer-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:600;letter-spacing:3px;color:var(--silver-light);
+}
+footer p{font-size:11px;color:var(--text-dim);}
+ 
+/* responsive */
+@media(max-width:760px){
+  section,div.p2-inner{padding:48px 0;}
+  .deal-body,.deal-hdr{padding:24px 20px;}
+  .cta-block{padding:40px 22px;}
+  .mmc{grid-template-columns:1fr;}
+  .mmc-n{writing-mode:initial;padding:14px 20px;}
+  .step{grid-template-columns:48px 1fr;}
+  .stat-strip{grid-template-columns:1fr;}
+  .about-grid{gap:32px;}
+  .topbar-tag{display:none;}
+  .facts-row{grid-template-columns:repeat(2,1fr);}
+}
+ 
+/* fade-in animation */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.cover-title,.cover-hook,.confidential-pill{animation:fadeUp 0.9s ease both;}
+.cover-hook{animation-delay:0.25s;}
+</style>
+</head>
+<body>
+ 
+<!-- ══ NAV DOTS ══ -->
+<nav class="page-nav" aria-label="Page navigation">
+  <a href="#page1" title="Cover" class="active"></a>
+  <a href="#page2" title="Market Intelligence"></a>
+  <a href="#page3" title="Deal #1"></a>
+  <a href="#page4" title="Deals #2 & #3"></a>
+  <a href="#page5" title="About & CTA"></a>
+</nav>
+ 
+<!-- ══ TOPBAR ══ -->
+<header class="topbar">
+  <div>
+    <img src="E:\Silverdome LAnding Page\logo 1.png" class="img-fluid">
+  </div>
+  <span class="topbar-tag">Confidential Investor Briefing</span>
+  <a class="topbar-phone" href="tel:+917400230074">+91 74002 30074</a>
+</header>
+ 
+<!-- ══════════════════════════════════ -->
+<!--         PAGE 1 — COVER            -->
+<!-- ══════════════════════════════════ -->
+<section class="page" id="page1">
+  <div class="cover-hero">
+    <div class="cover-bg"></div>
+    <div class="cover-img"></div>
+ 
+    <div class="cover-content">
+      <div class="confidential-pill">
+        <span>Confidential Investor Briefing · Silverdome Realtors</span>
+      </div>
+ 
+      <span class="cover-eyebrow">Gurgaon Micro-Market Intelligence · 2025–2026</span>
+ 
+      <h1 class="cover-title">
+        The Gurgaon
+        <span class="accent">Micro-Market<br>Report</span>
+        <span class="co">— by Silverdome Realtors</span>
+      </h1>
+ 
+      <div class="cover-hook">
+        <strong>3 Carefully Vetted Property Opportunities in Gurgaon</strong> — at ₹10–12 CR residential and ₹2 CR commercial — that India's sharpest investors are quietly acquiring before prices jump 40–50%.<br><br>
+        Investors who entered Gurgaon's premium micro-markets 18 months ago have already <strong>nearly doubled their deployed capital</strong>. The same window remains open — but inventory is moving fast.
+      </div>
+ 
+      <div class="stat-strip">
+        <div class="sstat">
+          <span class="sstat-num">₹24,120 Cr</span>
+          <div class="sstat-label">Gurgaon overtook Mumbai in ultra-luxury home sales (₹10 CR+) in 2025 — a first in Indian real estate history.</div>
+        </div>
+        <div class="sstat">
+          <span class="sstat-num">72%</span>
+          <div class="sstat-label">Luxury home price appreciation in Delhi NCR between 2022–2025 — highest of any Indian metro. Mumbai: 43%. Bangalore: 42%.</div>
+        </div>
+        <div class="sstat">
+          <span class="sstat-num">2,079%</span>
+          <div class="sstat-label">Surge in Dwarka Expressway transaction value (2024–25). Prices on this single corridor rose 153% in 5 years.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-bar">
+    <span>Page 01 of 05</span>
+    <span>silverdomerealtors.com</span>
+    <span>+91 74002 30074</span>
+  </div>
+</section>
+ 
+ 
+<!-- ══════════════════════════════════ -->
+<!--    PAGE 2 — MARKET + MICRO-MARKETS -->
+<!-- ══════════════════════════════════ -->
+<section class="page" id="page2">
+  <div class="container" style="padding:72px 28px;">
+ 
+    <!-- OPENER -->
+    <div class="sec-label"><span>A Message From Rishi Singh</span></div>
+    <h2 class="rh">Why <em>This Moment</em> in Gurgaon Is Unlike Anything We Have Seen Before</h2>
+ 
+    <p class="body-p">Dear Investor, welcome to <strong>The Gurgaon Micro-Market Report</strong> — prepared exclusively by Silverdome Realtors.</p>
+    <p class="body-p">By reading this, you are already ahead of the overwhelming majority of investors still scrolling MagicBricks listings, forwarding WhatsApp brochures, and deliberating with their CA while the most attractive inventory quietly vanishes.</p>
+    <p class="body-p">Over the next few pages, you will receive <b>ground-level intelligence on 3 handpicked projects</b> in Gurgaon — the same ones institutional funds and serious HNI investors are steadily acquiring before the next significant price discovery phase arrives.</p>
+    <p class="body-p">Every recommendation in this briefing satisfies the exact criteria that separate <strong>wealth-multiplying real estate from capital that simply idles</strong>:</p>
+ 
+    <ul class="ilist">
+      <li>Established developers with independently verifiable delivery track records</li>
+      <li>The sole genuine high-rise in each respective micro-market</li>
+      <li>Currently priced 15–20% below comparable surrounding resale values</li>
+      <li>Staggered payment schedules — commit only 20–30% upfront</li>
+      <li>Genuinely constrained inventory — typically 350 to 500 units</li>
+    </ul>
+ 
+    <p class="body-p">The average luxury home price across India's top 7 cities climbed from ₹14,530/sq ft in 2022 to ₹20,300/sq ft in 2025 — a <strong>40% increase compressed into just 3 years</strong>. 62% of all residential transactions in H1 2025 involved homes priced above ₹1 crore — up from 51% a year prior. Analyst projections for 2026 point to another 15–18% appreciation across Gurgaon's prime corridors, powered by Delhi-Mumbai Expressway completion, metro extensions, and major township deliveries.</p>
+ 
+    <div class="pq">
+      Gurgaon is not a single market. It is <strong>5 distinct micro-markets</strong> — each at a different stage of its growth cycle. The money is made by entering the right one at the right stage, not by "buying in Gurgaon" generically.
+    </div>
+ 
+    <!-- MICRO-MARKETS -->
+    <div class="sec-label" style="margin-top:40px;"><span>The 5 Micro-Markets of Gurgaon</span></div>
+    <h2 class="rh">Where Silverdome's Research Says<br><em>Smart Money Is Flowing</em> Right Now</h2>
+ 
+    <div class="mm-grid">
+      <div class="mmc">
+        <div class="mmc-n">01</div>
+        <div class="mmc-c">
+          <div class="mmc-tag">Saturated · Limited New Upside</div>
+          <div class="mmc-title">Golf Course Road</div>
+          <p class="mmc-desc">Nothing available below ₹10–15 CR. Virtually no buildable land remaining. Where established wealth lives — not where new wealth is forged anymore. The significant gains here materialized 8–10 years ago.</p>
+        </div>
+      </div>
+      <div class="mmc hot">
+        <div class="mmc-n">02</div>
+        <div class="mmc-c">
+          <div class="mmc-tag">◆ Silverdome Focus — Highest Projected Growth</div>
+          <div class="mmc-title">Golf Course Extension Road</div>
+          <p class="mmc-desc">Being developed as a direct continuation of Golf Course Road. Government-funded elevated flyover under construction; metro connectivity confirmed. DLF, M3M, Sobha, Lodha, and Oberoi all entering. Residents of ₹15–20 CR condos here drive premium demand for retail, dining, and social infrastructure. Silverdome's primary advisory corridor.</p>
+        </div>
+      </div>
+      <div class="mmc hot">
+        <div class="mmc-n">03</div>
+        <div class="mmc-c">
+          <div class="mmc-tag">◆ Silverdome Focus — Early Innings, High Potential</div>
+          <div class="mmc-title">Sohna Road / Southern Peripheral Road</div>
+          <p class="mmc-desc">Direct link to the Delhi-Mumbai Expressway. Home to Central Park Resorts — Gurgaon's gold standard at ₹30–32k/sq ft. DLF's Cyber City 2 is coming up on SPR. Fortune 500 commercial hubs within 2–3 km. The next wave of appreciation is building here.</p>
+        </div>
+      </div>
+      <div class="mmc">
+        <div class="mmc-n">04</div>
+        <div class="mmc-c">
+          <div class="mmc-tag">Proven · Already Delivered Strong Returns</div>
+          <div class="mmc-title">Dwarka Expressway</div>
+          <p class="mmc-desc">The corridor that turned early movers into legends. Properties launched at ₹14,500/sq ft in 2023 now touch ₹20,000/sq ft. With only 35% deployed capital, early investors have nearly doubled returns in under 2 years. Silverdome advised clients into this corridor early.</p>
+        </div>
+      </div>
+      <div class="mmc">
+        <div class="mmc-n">05</div>
+        <div class="mmc-c">
+          <div class="mmc-tag">Emerging · Longer Horizon</div>
+          <div class="mmc-title">New Gurgaon (Sectors 79–113)</div>
+          <p class="mmc-desc">On the far side of the highway — an emerging market with a longer runway to full maturity. Suitable for investors with extended time horizons and higher risk tolerance. Silverdome monitors select opportunities here.</p>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- PRE-CONSTRUCTION PLAYBOOK -->
+    <div class="sec-label" style="margin-top:48px;"><span>The Investment Framework</span></div>
+    <h2 class="rh">The <em>Pre-Construction Advantage</em>: How Silverdome Clients Compound 40–80% Every 3–4 Years</h2>
+ 
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-b">
+          <h4>Enter branded, under-construction projects at pre-launch or early-phase pricing</h4>
+          <p>Typically 15–25% below what the surrounding resale market already transacts at. Deploy only 20–30% upfront. The balance is staggered across 3–5 years of construction — protecting your liquidity.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-b">
+          <h4>Allow the phased pricing mechanism to drive appreciation</h4>
+          <p>Smart developers launch in phases — Phase 1 at ₹23k/sq ft, Phase 2 at ₹25k/sq ft, Phase 3 at ₹35k/sq ft. Each new phase sets a higher price floor that lifts all early investors. Silverdome positions clients at Phase 1 or Phase 2 entries.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-b">
+          <h4>By Year 3–4, your asset has appreciated 40–50% on the total value</h4>
+          <p>Driven by construction progress, infrastructure completion, and the surrounding market catching up. Exit at a premium, hold for rental income, or rotate into the next cycle with Silverdome's guidance. This playbook converted ₹5 CR into ₹9–10 CR for Silverdome clients who entered Dwarka Expressway projects in 2021–22.</p>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+  <div class="page-bar">
+    <span>Page 02 of 05</span>
+    <span>Silverdome Realtors · Market Intelligence</span>
+    <span>+91 74002 30074</span>
+  </div>
+</section>
+ 
+ 
+<!-- ══════════════════════════════════ -->
+<!--        PAGE 3 — DEAL #1           -->
+<!-- ══════════════════════════════════ -->
+<section class="page" id="page3">
+  <div class="deal-pg container">
+ 
+    <div class="sec-label"><span>Silverdome Confidential Pick · Deal #1</span></div>
+    <h2 class="rh"><em>Elan Statement</em><br>Sector 49, Sohna Road</h2>
+ 
+    <div class="deal-hdr">
+      <span class="deal-ey">Residential · Sector 49, Sohna Road · Silverdome Verified</span>
+      <div class="deal-nm">Elan Statement</div>
+      <p class="deal-sub">Gurgaon's only glass-façade high-rise on Sohna Road — situated alongside the ₹30 CR benchmark Central Park Resorts, yet priced 15–20% below the surrounding micro-market. This is the pricing gap that Silverdome is recommending you act on now.</p>
+    </div>
+ 
+    <img class="deal-img"
+      src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80"
+      alt="Elan Statement — Luxury High-Rise, Sohna Road"
+      onerror="this.src='https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&q=80'">
+ 
+    <div class="specs">
+      <div class="spec"><span class="sv">~₹11 CR</span><span class="sk">Price Per Unit</span></div>
+      <div class="spec"><span class="sv">~4,000</span><span class="sk">Sq Ft</span></div>
+      <div class="spec"><span class="sv">4 BHK</span><span class="sk">Configuration</span></div>
+      <div class="spec"><span class="sv">350</span><span class="sk">Total Units</span></div>
+      <div class="spec"><span class="sv">G+40</span><span class="sk">Tower Height</span></div>
+      <div class="spec"><span class="sv">2 / Floor</span><span class="sk">Units Per Floor</span></div>
+      <div class="spec"><span class="sv">30%</span><span class="sk">Upfront (₹3.3 CR)</span></div>
+    </div>
+ 
+    <div class="deal-body">
+      <p>Silverdome Realtors recommends Elan Statement as <strong>one of the most compelling residential entry points on Sohna Road right now</strong> — and here is precisely why.</p>
+      <p>The project sits within the orbit of <strong>Central Park Resorts</strong> — a 50-acre landmark that has been Sohna Road's pricing benchmark for over a decade. Central Park currently commands ₹30–32k/sq ft across 2,000+ units and offers butler on call, chef on call, chauffeur services, and even a helipad for air taxis. Senior CXOs, celebrities, and CEOs of major developer firms call it home. Ticket sizes there are ₹25–30 crore.</p>
+      <p>Here is the opportunity: <b>Elan Statement is priced at ₹26,000/sq ft — approximately 15–20% below Central Park and the surrounding micro-market.</b></p>
+      <p>The immediate neighbouring Vatika project — 10–12 years old, poorly planned, offering none of the exclusivity — already trades at ₹26–27k/sq ft in resale. Trump Tower, just 2–3 km away in Sector 65 (a project Silverdome is well-acquainted with), commands ₹32–34k/sq ft. You are acquiring a brand-new, five-star-grade residence at the same per-sq-ft cost as an ageing, less premium building next door. <strong>That pricing anomaly is the investment thesis.</strong></p>
+ 
+      <h4>What Makes This a Silverdome-Grade Recommendation</h4>
+      <p><strong>Sole glass-façade high-rise on Sohna Road.</strong> In a neighbourhood of 12–16 floor low-rises, this G+40 tower will be a permanent skyline landmark — visible from every direction, dominating the horizon alongside Central Park. First-mover visibility advantage is irreversible.</p>
+      <p><strong>Only 2 units per floor — genuine exclusivity.</strong> This is a curated community of 350 families at the ₹10–12 crore tier. No mismatch between a ₹5 crore buyer and a ₹12 crore buyer on the same level.</p>
+      <p><strong>Zero vehicular movement at ground level.</strong> Entirely underground. The ground plane is a fully resort-themed landscape. Hospitality-grade services — the same features commanding ₹25–30 crore at Central Park — are integrated into the architecture.</p>
+      <p><strong>Construction by Tata Engineers</strong> — turnkey from initial rafting to final handover. <strong>Designed by UHL London and Benoy</strong> — the identical firms behind DLF Camellias, India's benchmark for luxury residential design. Silverdome's Rishi Singh has personally evaluated the construction quality and builder credibility of this project.</p>
+      <p><strong>Location:</strong> Sector 49, at Vatika Chowk, on the arterial road connecting Rajiv Chowk to Vatika Chowk. Direct access to the Delhi-Mumbai Expressway. 2–3 km to American Express's largest corporate office in India. 2–3 km to M3M IFC. Direct connectivity to NH8, Cyber City, and the forthcoming DLF Cyber City 2 on SPR.</p>
+ 
+      <h4>The Investment Arithmetic — Silverdome Analysis</h4>
+      <table class="mtbl">
+        <tr><td>Current price per unit</td><td>~₹11 CR</td></tr>
+        <tr><td>Capital deployed now (30% upfront)</td><td>₹3.3 CR</td></tr>
+        <tr><td>Central Park Resorts today (benchmark)</td><td>₹30–32k/sq ft</td></tr>
+        <tr><td>Central Park projected appreciation (5–6 yrs)</td><td>₹40–45k/sq ft</td></tr>
+        <tr class="hl"><td>Projected asset value at completion</td><td>₹14–15 CR</td></tr>
+      </table>
+      <p>That is a <b>₹3–4 crore gain on only ₹3.3 crore deployed</b> — effectively near-doubling your invested capital, not your total ticket size. Compare this to Trump Tower (a project Silverdome advises on), where the full amount must be committed within 4–6 months.</p>
+      <p><strong>Track record that validates this:</strong> Elan Presidential on Dwarka Expressway launched in 2023 at ₹14,500/sq ft — resale today is nearing ₹20,000/sq ft. Early investors with only 35% down have nearly doubled their capital. Elan Statement is following the exact same trajectory in a more premium micro-market — and Silverdome is positioning clients at this early stage.</p>
+    </div>
+  </div>
+ 
+  <div class="page-bar">
+    <span>Page 03 of 05</span>
+    <span>Deal #1 · Elan Statement · Sohna Road</span>
+    <span>+91 74002 30074</span>
+  </div>
+</section>
+ 
+ 
+<!-- ══════════════════════════════════ -->
+<!--     PAGE 4 — DEAL #2 + DEAL #3    -->
+<!-- ══════════════════════════════════ -->
+<section class="page" id="page4">
+  <div style="background:var(--dark-2); padding:64px 0;">
+  <div class="container">
+ 
+    <!-- DEAL 2 -->
+    <div class="sec-label"><span>Silverdome Confidential Pick · Deal #2</span></div>
+    <h2 class="rh"><em>Birla Arika</em><br>Sector 31, NH8</h2>
+ 
+    <div class="deal-hdr">
+      <span class="deal-ey">Residential · Sector 31, NH8 · Silverdome Verified</span>
+      <div class="deal-nm">Birla Arika</div>
+      <p class="deal-sub">The last available land parcel in Sector 31 — 500 metres from NH8 — where a comparable high-rise will never be possible again. Permanent structural scarcity, phased pricing with ₹10,000/sq ft upside built in.</p>
+    </div>
+ 
+    <img class="deal-img"
+      src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80"
+      alt="Birla Arika — Sector 31, NH8"
+      onerror="this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80'">
+ 
+    <div class="specs">
+      <div class="spec"><span class="sv">~₹10–11 CR</span><span class="sk">Price</span></div>
+      <div class="spec"><span class="sv">4,300</span><span class="sk">Sq Ft</span></div>
+      <div class="spec"><span class="sv">4 BHK</span><span class="sk">Config</span></div>
+      <div class="spec"><span class="sv">~500 / 7 Towers</span><span class="sk">Units</span></div>
+      <div class="spec"><span class="sv">15 Acres</span><span class="sk">Project Area</span></div>
+      <div class="spec"><span class="sv">20% / ~₹2 CR</span><span class="sk">Upfront</span></div>
+    </div>
+ 
+    <div class="deal-body">
+      <p>This deal is about <strong>permanent, geometric scarcity</strong> — and Silverdome Realtors is one of the earliest advisory firms to position clients here at Phase 2 pricing.</p>
+      <p>Sector 31 sits on the primary national highway linking Delhi to Gurgaon — one of the city's most established sectors. Birla Arika occupies <strong>the very last buildable land parcel in the entire sector</strong>. There is no remaining vacant land. A similar high-rise in this location will simply never arise again.</p>
+ 
+      <h4>The Phased Pricing That Creates Your Upside</h4>
+      <div class="phase-wrap">
+        <div class="ph-row">
+          <div class="ph-dot"></div>
+          <div class="ph-lbl">Phase 1 — Launched last year (~300 units)</div>
+          <div class="ph-price">₹23,000/sq ft</div>
+          <div class="ph-badge sold">SOLD OUT</div>
+        </div>
+        <div class="ph-row live">
+          <div class="ph-dot"></div>
+          <div class="ph-lbl">Phase 2 — Currently live · <strong>Silverdome is advising clients to enter now</strong></div>
+          <div class="ph-price">₹25,000/sq ft</div>
+          <div class="ph-badge">OPEN NOW</div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-dot"></div>
+          <div class="ph-lbl">Phase 3 — Projected in ~2 years</div>
+          <div class="ph-price">₹35,000/sq ft</div>
+        </div>
+      </div>
+      <p>The gap between Phase 2 and Phase 3 is <b>₹10,000/sq ft</b>. When Phase 3 launches at ₹35k, Phase 2 buyers can sell in the secondary market at ₹30–32k/sq ft. Normally the spread between builder price and secondary market is ₹2–3k. Here, the phase-over-phase jump is ₹10k — that is where the investor's upside lives. Silverdome clients who entered Phase 1 at ₹23k already hold ₹2,000/sq ft in paper gains.</p>
+      <p>Consider: all surrounding societies — independent floors, kothis, older low-rise apartments — are already at ₹25–26k/sq ft in resale, with inferior specifications, no comparable amenities, and nothing approaching Birla's product quality. You are acquiring a brand-new Birla development at the same rate as decade-old properties delivering less than 20% of the amenity value.</p>
+ 
+      <h4>What the Project Delivers</h4>
+      <p>15 acres. 7 towers. Only 2 apartments per floor. Every tower is either club-facing or central-green-facing. Zero vehicular movement at ground level — underground tunnel parking. Entirely resort-themed ground plane. <strong>4 themed clubs totalling over 1 lakh sq ft</strong>: Health & Fitness (gym, spa, sauna, yoga), Social Club (restaurant, cafés), dedicated Sports Club, and dedicated Children's Club — distributed intelligently across the campus, not clustered. And a culturally important detail: <strong>Pooja room walls do not share a wall with any bathroom</strong> — designed into the blueprint from day one. Birla is a listed group with absolute brand trust, having delivered landmark projects in Mumbai.</p>
+    </div>
+ 
+    <!-- DEAL 3 -->
+    <div class="sec-label" style="margin-top:52px;"><span>Silverdome Confidential Pick · Deal #3 — Commercial</span></div>
+    <h2 class="rh"><em>Conscient Elevate Reserve</em><br>Golf Course Extension, Sector 62</h2>
+ 
+    <div class="deal-hdr">
+      <span class="deal-ey">Commercial · Golf Course Extension, Sector 62 · Silverdome Verified</span>
+      <div class="deal-nm">Conscient Elevate Reserve</div>
+      <p class="deal-sub">The passive income engine on Gurgaon's highest-growth corridor — structured to return ₹51 Lakhs to you before your property has fully appreciated. 11% assured return during construction. Hines Group as JV partner.</p>
+    </div>
+ 
+    <img class="deal-img"
+      src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80"
+      alt="Conscient Elevate Reserve — Golf Course Extension"
+      onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80'">
+ 
+    <div class="specs">
+      <div class="spec"><span class="sv">From ₹1.7 CR</span><span class="sk">Entry Point</span></div>
+      <div class="spec"><span class="sv">₹26–27k</span><span class="sk">Current/sq ft</span></div>
+      <div class="spec"><span class="sv">₹40–45k</span><span class="sk">Projected (4 yrs)</span></div>
+      <div class="spec"><span class="sv">50% + 50%</span><span class="sk">Payment Plan</span></div>
+      <div class="spec"><span class="sv">11% p.a.</span><span class="sk">Assured Return</span></div>
+    </div>
+ 
+    <div class="deal-body">
+      <p>If deals #1 and #2 are about capital multiplication, this one is about <strong>building a rental income engine that operates while you sleep</strong> — and Silverdome Realtors has evaluated this structure extensively before recommending it to our investor base.</p>
+      <p>A ₹2 crore investment here is designed to generate ₹18–20 lakhs in annual rent plus property appreciation once completed and fully leased in approximately four years. The genius: <b>returns begin from Day 1 of your investment, not Day 1 of possession.</b></p>
+ 
+      <h4>The 4-Year Cash Flow — Silverdome Breakdown</h4>
+      <div class="tl-wrap">
+        <div class="tl-blk" data-ph="Phase 1 · Years 1–3">
+          <h5>During Construction</h5>
+          <div class="tl-row"><span>You pay developer (50%)</span><span class="tl-v">₹1 CR</span></div>
+          <div class="tl-row"><span>Developer guarantees 11% p.a. on ₹1 CR</span><span class="tl-v">₹11 L / year</span></div>
+          <div class="tl-row"><span>Total received across 3 years</span><span class="tl-v">₹33 Lakhs</span></div>
+        </div>
+        <div class="tl-blk" data-ph="Phase 2 · Year 4">
+          <h5>Post-Possession Year</h5>
+          <div class="tl-row"><span>Remaining payment (50%)</span><span class="tl-v">₹1 CR</span></div>
+          <div class="tl-row"><span>Total invested</span><span class="tl-v">₹2 CR</span></div>
+          <div class="tl-row"><span>Hines guarantees 9% lease on full ₹2 CR for 1 year</span><span class="tl-v">₹18 Lakhs</span></div>
+        </div>
+        <div class="tl-blk result" data-ph="Net Position · Year 4">
+          <h5>Your Net Position After 4 Years</h5>
+          <div class="tl-row"><span>Total cash recovered (₹33L + ₹18L)</span><span class="tl-v">₹51 Lakhs</span></div>
+          <div class="tl-row"><span>Effective net capital deployed</span><span class="tl-v">~₹1.5 CR</span></div>
+          <div class="tl-row"><span>Property appreciation (45–50%)</span><span class="tl-v">₹2.5–3 CR</span></div>
+          <div class="tl-row"><span>Net position on ₹1.5 CR deployed</span><span class="tl-v" style="color:var(--silver-light);font-size:15px;">₹1.5 CR → ₹2.5–3 CR + ongoing rent</span></div>
+        </div>
+      </div>
+ 
+      <p>This is a JV between <strong>Conscient Group and Hines Group</strong>. Hines is the global property fund that co-developed One Horizon Centre with DLF on Golf Course Road — one of Gurgaon's most prestigious commercial addresses. Hines retains the entire ground floor for themselves, curating premium global brands (Zara, H&M, Marks & Spencer calibre). Only floors 1 and 2 are sold to investors — with Hines having full skin in the game. <strong>Conscient + Hines delivered a residential project in Sector 59 approximately 5 years ago that has generated nearly 2x since launch</strong> — same micro-market, same partnership, verified by Silverdome. Architecture by Ricardo Bofill (Barcelona). Construction by Shapoorji Group.</p>
+    </div>
+ 
+  </div>
+  </div>
+  <div class="page-bar">
+    <span>Page 04 of 05</span>
+    <span>Deals #2 & #3 · Silverdome Verified Picks</span>
+    <span>+91 74002 30074</span>
+  </div>
+</section>
+ 
+ 
+<!-- ══════════════════════════════════ -->
+<!--       PAGE 5 — ABOUT + CTA        -->
+<!-- ══════════════════════════════════ -->
+<section class="page" id="page5">
+<div class="container" style="padding:64px 28px 0;">
+ 
+  <!-- WHY THESE 3 -->
+  <div class="sec-label"><span>The Silverdome Selection Criteria</span></div>
+  <h2 class="rh">Why These 3 — And Not the <em>200+ Other Projects</em> Launching in Gurgaon Right Now</h2>
+  <p class="body-p">Silverdome Realtors evaluates hundreds of project launches each year. These 3 share 5 non-negotiable characteristics that consistently separate wealth-multiplying real estate from everything else.</p>
+ 
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-n">01</div>
+      <div class="why-t">Controlled Density</div>
+      <p class="why-d">350–500 units maximum. Low density ensures parking, clubs, restaurants, and infrastructure are never overburdened over decades — sustaining appreciation while mass projects stagnate.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-n">02</div>
+      <div class="why-t">The Only High-Rise in Each Area</div>
+      <p class="why-d">Both Elan and Birla are the sole high-rises in their vicinity. Landmark status and skyline dominance that no future project can replicate. Silverdome does not recommend high-density towers in saturated corridors.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-n">03</div>
+      <div class="why-t">Self-Marketing Assets</div>
+      <p class="why-d">Like DLF Camellias and Central Park, exclusive branded projects attract buyers organically. You do not chase the market — the brand and scarcity bring the market to you.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-n">04</div>
+      <div class="why-t">Staggered Payment Architecture</div>
+      <p class="why-d">20–30% upfront, next tranche 3–4 years later. When you deploy ₹2–3 CR instead of ₹10–11 CR and the asset appreciates ₹3–4 CR, your return on deployed capital is transformative.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-n">05</div>
+      <div class="why-t">Brands That Have Actually Delivered</div>
+      <p class="why-d">Elan has doubled investor capital. Birla is a listed group with landmark Mumbai deliveries. Conscient-Hines delivered 2x in the identical micro-market. Silverdome only recommends developers its team knows personally and has independently verified.</p>
+    </div>
+  </div>
+ 
+  <!-- TIMING -->
+  <div class="pq" style="margin-top:40px;">
+    Inventory in all three projects is limited and moving. <strong>Every month you wait, you pay more</strong> — this is not artificial scarcity, it is how phased pricing and limited inventory function. If your CA is advising capital gains redeployment, note that the <strong>Section 54F window is time-bound</strong>. These properties fall within the ₹10 crore exemption bracket, subject to individual eligibility and professional guidance.
+  </div>
+ 
+  <!-- ABOUT RISHI -->
+  <div class="sec-label" style="margin-top:48px;"><span>About Silverdome Realtors & Founder Rishi Singh</span></div>
+ 
+  <div class="about-grid">
+    <div class="about-left">
+      <img class="founder-img"
+        src="E:\Silverdome LAnding Page\Rishi Sir Pic.jpeg"
+        alt="Rishi Singh — Founder & CEO, Silverdome Realtors"
+        onerror="this.style.display='none'">
+      <div class="founder-badge"><span>Founder & CEO · Silverdome Realtors</span></div>
+      <div class="founder-name">Rishi Singh</div>
+      <div class="founder-role">14 Years · Gurgaon Real Estate</div>
+      <div class="founder-quote">
+        "My vision was simple yet ambitious — to create a real estate advisory that prioritizes transparency, integrity, and client success above all else. Every tower that rises represents dreams and aspirations, not just structures."
+      </div>
+    </div>
+    <div>
+      <p class="body-p">No polished corporate biography. What matters: <strong>Silverdome Realtors was built on the principle that your interests come first, always.</strong></p>
+      <p class="body-p">Founded by Rishi Singh — a real estate professional with <strong>14 years of on-the-ground experience</strong> in Gurgaon — Silverdome Realtors Pvt. Ltd. is not just another brokerage. It is a <strong>boutique consultancy focused on premium residential, commercial, and NRI investment advisory</strong>, headquartered in Gurugram with market coverage extending to Dubai.</p>
+      <p class="body-p">Rishi has spent years walking construction sites, tracking infrastructure timelines, monitoring which Fortune 500 companies are expanding and where, and determining which developers genuinely deliver versus which ones excel primarily at marketing. When Silverdome recommends Elan, Birla, or Conscient-Hines, it is because the diligence has been done — personally and independently.</p>
+      <p class="body-p">The firm has also earned recognition from the industry's most prestigious developers — including the <strong>"Titans of Trump" Award</strong> for exceptional performance in luxury real estate, and the <strong>Smart World Privilege Partner League Award</strong> — a testament to the trust that top-tier builders place in Silverdome's advisory capabilities.</p>
+ 
+      <!-- Company facts -->
+      <div class="facts-row">
+        <div class="fact"><span class="fact-n">14+</span><span class="fact-l">Years Experience</span></div>
+        <div class="fact"><span class="fact-n">1,500+</span><span class="fact-l">Transactions</span></div>
+        <div class="fact"><span class="fact-n">₹3,300 Cr+</span><span class="fact-l">Value Transacted</span></div>
+        <div class="fact"><span class="fact-n">95%</span><span class="fact-l">Client Retention</span></div>
+      </div>
+ 
+      <!-- Awards -->
+      <div class="awards-row">
+        <div class="award-card">
+          <div class="award-icon">🏆</div>
+          <div>
+            <div class="award-name">Titans of Trump Award</div>
+            <div class="award-from">Trump Towers · Luxury Real Estate Excellence</div>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="award-icon">🥇</div>
+          <div>
+            <div class="award-name">Smart World Privilege Partner League Award</div>
+            <div class="award-from">Smart World Developers · August 2025</div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Builder Partners -->
+      <p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);margin:20px 0 10px;font-weight:500;">Builder Alliances · Silverdome Preferred Partners</p>
+      <div class="partners-strip">
+        <span class="partner-pill">DLF</span>
+        <span class="partner-pill">M3M</span>
+        <span class="partner-pill">Trump Towers</span>
+        <span class="partner-pill">Elan Group</span>
+        <span class="partner-pill">Birla Estates</span>
+        <span class="partner-pill">Conscient · Hines</span>
+        <span class="partner-pill">Emaar</span>
+        <span class="partner-pill">Sobha Dubai</span>
+        <span class="partner-pill">AIPL</span>
+        <span class="partner-pill">Bhutani Group</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-dim);margin-top:10px;">These partnerships give Silverdome clients <strong style="color:var(--text)">first access to pre-launch inventory, special phase pricing, and high-priority unit allotment</strong> — advantages that are unavailable to general market buyers.</p>
+    </div>
+  </div>
+ 
+  <!-- FINAL CTA -->
+  <div class="cta-block">
+    <span class="cta-lb">Private Consultation · Silverdome Realtors</span>
+    <div class="cta-h">Ready to See These 3 Deals Up Close?<br>Book Your Private Call With Rishi Singh</div>
+    <p class="cta-s">A focused 30-minute conversation to determine which of these 3 deals aligns with your capital, timeline, and investment thesis. Unit-level specifics — exact floors, payment schedules, and developer incentives — are shared exclusively on this call.</p>
+    <a href="tel:+917400230074" class="cta-btn">Call Silverdome Now →</a>
+    <div class="cta-contact">
+      <a href="tel:+917400230074">+91 74002 30074</a>
+      <a href="https://silverdomerealtors.com" target="_blank">silverdomerealtors.com</a>
+      <a href="https://instagram.com/silverdomerealtors" target="_blank">@silverdomerealtors</a>
+      <a href="https://in.linkedin.com/in/rishisinghsilverdome" target="_blank">Rishi Singh on LinkedIn</a>
+    </div>
+    <p class="cta-note" style="margin-top:20px;">Limited slots available each week. Serious investors only. No spam. No unsolicited follow-ups.</p>
+  </div>
+ 
+  <!-- DISCLAIMER -->
+  <div class="disc">
+    <p><strong>Disclaimer:</strong> This report is prepared by Silverdome Realtors Pvt. Ltd. for informational purposes only and does not constitute financial, legal, or investment advice. All property prices, appreciation projections, and return estimates are based on current market conditions, historical data, and independent industry analysis — they are not guarantees of future performance. Real estate investments carry inherent risks including market fluctuations, construction delays, and regulatory changes. Prospective investors should conduct their own due diligence and consult qualified independent professionals before making any investment decisions. Past performance of referenced projects does not guarantee comparable results for current offerings. RERA registration details are available upon request for all listed projects.</p>
+  </div>
+ 
+</div>
+ 
+<div class="page-bar">
+  <span>Page 05 of 05</span>
+  <span>About Silverdome Realtors</span>
+  <span>+91 74002 30074</span>
+</div>
+ 
+<footer>
+  <div>
+    <div class="footer-brand">SILVERDOME REALTORS PVT. LTD.</div>
+    <p>Gurugram · Delhi NCR · Dubai &nbsp;|&nbsp; silverdomerealtors.com</p>
+  </div>
+  <div style="text-align:right;">
+    <p>Founder & CEO: Rishi Singh</p>
+    <p>Managing Director: Aakriti Bharadwaj Singh</p>
+    <p style="margin-top:6px;opacity:0.5;">© 2025 Silverdome Realtors Pvt. Ltd. All Rights Reserved.</p>
+  </div>
+</footer>
+</section>
+ 
+<script>
+// Update active nav dot on scroll
+const pages = document.querySelectorAll('.page');
+const dots = document.querySelectorAll('.page-nav a');
+ 
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      dots.forEach(d => d.classList.remove('active'));
+      const active = document.querySelector(`.page-nav a[href="#${id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.4 });
+ 
+pages.forEach(p => observer.observe(p));
+</script>
+</body>
+</html>
+ 
